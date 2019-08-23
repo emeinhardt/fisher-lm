@@ -1,6 +1,6 @@
 # fisher-lm
 
-This notebook documents code for pre-processing the Fisher corpus transcripts into an easier-to-work-with (=relational) format, and into a format that facilitates creating an n-gram model using `kenlm` (= one utterance per line with non-speech events and disfluencies removed or altered to taste).
+The main notebook in this repository documents code for pre-processing the Fisher corpus transcripts into an easier-to-work-with (=relational) format, and into a format that facilitates creating an n-gram model using `kenlm` (= one utterance per line with non-speech events and disfluencies removed or altered to taste).
 
 ## Dependencies
  - Fisher corpus transcripts.
@@ -20,7 +20,7 @@ For both the 'main' transcriptions done by the LDC and the BBN ones, this notebo
  2. a single .txt file containing vocabulary from the (processed) utterances.
  3. a single .txt file containing one (processed) utterance per line - suitable for input to kenlm.
  
-The code at the end will use kenlm to produce .arpa and .mmap files
+The code at the end will use kenlm to produce .arpa and .mmap files.
 
 ## Utterance processing
 
@@ -76,3 +76,8 @@ Any wordform starting or ending with a dash has been replaced with `<rem>`.
 ### Case
 
 All wordforms have been converted to lowercase.
+
+
+## Parameter selection notebook
+
+This notebook is intended to facilitate parameter selection for a language model based on the Fisher corpus using `kenlm`. It constructs and measures the perplexity of language models for various parameter choices (documented in the notebook). It does so by dividing a shuffled list of corpus utterances 90/10 into a training and test set and checking the perplexity of each parameter combination on the test set.
